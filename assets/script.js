@@ -2,16 +2,9 @@
 $("#currentDay").text(moment().format('dddd, MMMM Do, YYYY'));
 
 // Change color for past, present, future
-// var hour = '08';
 var hourPresent = (moment().format('HH'));
-var hourPast = hourPast < hourPresent;
-var hourFuture = hourFuture > hourPresent; 
-
-console.log(hourPresent);
-
-
-// How do I link it to my planner????
 var hour = $("#09").attr('id');
+
 if (hourPresent == hour) {
     $(".timeSlot").addClass("bg-danger");
 } else if (hourPresent < hour) {
@@ -95,21 +88,39 @@ if (hourPresent == hour) {
 
 
 
+var list = JSON.parse(localStorage.getItem('todolist')) || [];
+      function renderTodos(list) {
+        $('#to-dos').empty();
+        for (var i = 0; i < list.length; i++) {
+          var toDoItem = $('<p>');
+          toDoItem.text(list[i]);
+          var toDoClose = $('<button>');
+          toDoClose.attr('data-to-do', i);
+          toDoClose.addClass('checkbox');     
+          toDoClose.text('✓');
+          toDoItem = toDoItem.prepend(toDoClose);
+          $('#to-dos').append(toDoItem);
+        }
+      }
+      $('#add-to-do').on('click', function(event) {
+        event.preventDefault();
+        var toDoTask = $('#to-do')
+          .val()
+          .trim();
+
+        list.push(toDoTask);
+        renderTodos(list);
+        localStorage.setItem('todolist', JSON.stringify(list));      
+        $('#to-do').val('');
+      });
+
+      $(document).on('click', '.checkbox', function() {    
+        var toDoNumber = $(this).attr('data-to-do');
+        list.splice(toDoNumber, 1);
+        renderTodos(list);
+        localStorage.setItem('todolist', JSON.stringify(list));
+      });
+      renderTodos(list);
 
 
 
-
-
-
-
-
-
-
-
-
-
-// add and edit events
-
-
-
-// local storage
