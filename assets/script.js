@@ -1,40 +1,25 @@
-$("#currentDay").text(moment().format('dddd, MMMM Do, YYYY hh'));
 
-var currentHour = moment(currentDay, 'h');
-console.log(currentHour);
+$("#currentDay").text(moment().format('dddd, MMMM Do, YYYY'));
+
+// Change color for past, present, future
+var startHour = '9';
+var hourPresent = (moment().format('HH'));
+var hourPast = hourPast < hourPresent;
+var hourFuture = hourFuture > hourPresent; 
+
+console.log(hourPresent);
+
+// How do I link it to my planner????
+if (hourPresent == startHour) {
+    $(".timeSlot").addClass("bg-danger");
+} else if (hourPresent < startHour) {
+    $(".timeSlot").addClass("bg-success");
+} else {
+    $(".timeSlot").addClass("bg-secondary");
+}
+
+// add and edit events
 
 
-var randomDate = '02/23/1999';
-// Convert the `randomDate` to the "MM/DD/YYYY" format using `moment()`
-var randomFormat = 'MM/DD/YYYY';
-var convertedDate = moment(randomDate, randomFormat);
-// Log `convertedDate` into the console
-console.log(convertedDate);
-console.log('----------------------------------------');
 
-
-
-
-
-
-
-
-// // Save event function
-// var saveTasks = function() {
-//     localStorage.setItem("tasks", JSON.stringify(tasks));
-//   };
-
-// // get the parent ul's id attribute
-// var status = $(this)
-// .closest(".list-group")
-// .attr("id")
-// .replace("list-", "");
-
-// // get the task's position in the list of other li elements
-// var index = $(this)
-// .closest(".list-group-item")
-// .index();
-
-// // update task in array and re-save to localstorage
-// tasks[status][index].date = date;
-// saveTasks();
+// local storage

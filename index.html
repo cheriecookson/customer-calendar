@@ -32,58 +32,58 @@
     </header>
     <div class="container">
       <!-- Timeblocks go here -->
-      
+
       <div class="row shadow">
-        <div class="col-1 p-3 bg-light border-right border-bottom border-secondary rounded-0">9AM</div>
-        <div class="col-10 p-3 bg-info rounded-0">enter and edit event</div>
+        <div class="col-1 bg-light border-right border-bottom border-secondary rounded-0"><span id="hour9"></span>AM</div>
+        <div id="editEvent"  class="col-10 rounded-0 timeSlot"><input type="text" class="form-control form-control-lg" placeholder="Add/Edit Event"></div>
         <button type="button" class="col-1 btn btn-dark"><span class="oi oi-box"></span>
         </button>        
       </div>
       <div class="row shadow">
-        <div class="col-1 p-3 bg-light border-right border-bottom border-secondary rounded-0">9AM</div>
-        <div class="col-10 p-3 bg-info rounded-0">enter and edit event</div>
+        <div class="col-1 bg-light border-right border-bottom border-secondary rounded-0"><span id="hour10"></span>PM</div>
+        <div id="editEvent"  class="col-10 rounded-0 timeSlot">enter and edit event</div>
         <button type="button" class="col-1 btn btn-dark"><span class="oi oi-box"></span>
         </button>        
       </div>
       <div class="row shadow">
-        <div class="col-1 p-3 bg-light border-right border-bottom border-secondary rounded-0">9AM</div>
-        <div class="col-10 p-3 bg-info rounded-0">enter and edit event</div>
+        <div class="col-1 bg-light border-right border-bottom border-secondary rounded-0"><span id="hour11"></span>AM</div>
+        <div id="editEvent"  class="col-10 rounded-0 timeSlot">enter and edit event</div>
         <button type="button" class="col-1 btn btn-dark"><span class="oi oi-box"></span>
         </button>        
       </div>
       <div class="row shadow">
-        <div class="col-1 p-3 bg-light border-right border-bottom border-secondary rounded-0">9AM</div>
-        <div class="col-10 p-3 bg-info rounded-0">enter and edit event</div>
+        <div class="col-1 bg-light border-right border-bottom border-secondary rounded-0"><span id="hour12"></span>PM</div>
+        <div id="editEvent"  class="col-10 rounded-0 timeSlot">enter and edit event</div>
         <button type="button" class="col-1 btn btn-dark"><span class="oi oi-box"></span>
         </button>        
       </div>
       <div class="row shadow">
-        <div class="col-1 p-3 bg-light border-right border-bottom border-secondary rounded-0">9AM</div>
-        <div class="col-10 p-3 bg-info rounded-0">enter and edit event</div>
+        <div class="col-1 bg-light border-right border-bottom border-secondary rounded-0"><span id="hour1"></span>PM</div>
+        <div id="editEvent"  class="col-10 rounded-0 timeSlot">enter and edit event</div>
         <button type="button" class="col-1 btn btn-dark"><span class="oi oi-box"></span>
         </button>        
       </div>
       <div class="row shadow">
-        <div class="col-1 p-3 bg-light border-right border-bottom border-secondary rounded-0">9AM</div>
-        <div class="col-10 p-3 bg-info rounded-0">enter and edit event</div>
+        <div class="col-1 bg-light border-right border-bottom border-secondary rounded-0"><span id="hour2"></span>PM</div>
+        <div id="editEvent"  class="col-10 rounded-0 timeSlot">enter and edit event</div>
         <button type="button" class="col-1 btn btn-dark"><span class="oi oi-box"></span>
         </button>        
       </div>
       <div class="row shadow">
-        <div class="col-1 p-3 bg-light border-right border-bottom border-secondary rounded-0">9AM</div>
-        <div class="col-10 p-3 bg-info rounded-0">enter and edit event</div>
+        <div class="col-1 bg-light border-right border-bottom border-secondary rounded-0"><span id="hour3"></span>PM</div>
+        <div id="editEvent"  class="col-10 rounded-0 timeSlot">enter and edit event</div>
         <button type="button" class="col-1 btn btn-dark"><span class="oi oi-box"></span>
         </button>        
       </div>
       <div class="row shadow">
-        <div class="col-1 p-3 bg-light border-right border-bottom border-secondary rounded-0">9AM</div>
-        <div class="col-10 p-3 bg-info rounded-0">enter and edit event</div>
+        <div class="col-1 bg-light border-right border-bottom border-secondary rounded-0"><span id="hour4"></span>PM</div>
+        <div id="editEvent"  class="col-10 rounded-0 timeSlot">enter and edit event</div>
         <button type="button" class="col-1 btn btn-dark"><span class="oi oi-box"></span>
         </button>        
       </div>
       <div class="row shadow">
-        <div class="col-1 p-3 bg-light border-right border-bottom border-secondary rounded-0">9AM</div>
-        <div class="col-10 p-3 bg-info rounded-0">enter and edit event</div>
+        <div class="col-1 bg-light border-right border-bottom border-secondary rounded-0"><span id="hour5"></span>PM</div>
+        <div id="editEvent"  class="col-10 rounded-0 timeSlot">enter and edit event</div>
         <button type="button" class="col-1 btn btn-dark"><span class="oi oi-box"></span>
         </button>        
       </div>
@@ -91,21 +91,10 @@
       </div>
 
     </div>
+    
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script>
-      
-    
-      $("#currentDay").text(moment().format('dddd, MMMM Do, YYYY'));
-
-      var currentHour = (moment().format('HH'));
-      console.log(currentHour);
-
-
-      
-
-
-    </script>
+    <script src="assets/script.js"></script>
   </body>
 </html>
