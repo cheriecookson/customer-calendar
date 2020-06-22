@@ -3,7 +3,7 @@
 $("#currentDay").text(moment().format('dddd, MMMM Do, YYYY'));
 
 // Change color for past, present, future
-var hourPresent = '13';
+var hourPresent = (moment().format('HH'));
 var hour = $("#09").attr('id');
 
 if (hourPresent == hour) {
