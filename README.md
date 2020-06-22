@@ -10,4 +10,4 @@ The scheduler displays the current day and lists work day hours starting from 9 
 
 ## Link
 
- [Let's schedule your day!]
+ [Let's schedule your day!](https://cheriecookson.github.io/customer-calendar/)
