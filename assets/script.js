@@ -1,8 +1,9 @@
 
+
 $("#currentDay").text(moment().format('dddd, MMMM Do, YYYY'));
 
 // Change color for past, present, future
-var hourPresent = (moment().format('HH'));
+var hourPresent = '13';
 var hour = $("#09").attr('id');
 
 if (hourPresent == hour) {
@@ -88,39 +89,37 @@ if (hourPresent == hour) {
 
 
 
-var list = JSON.parse(localStorage.getItem('todolist')) || [];
-      function renderTodos(list) {
-        $('#to-dos').empty();
+var list = JSON.parse(localStorage.getItem('editEventlist')) || [];
+      function rendereditEvents(list) {
+        $('#editEvents').empty();
         for (var i = 0; i < list.length; i++) {
-          var toDoItem = $('<p>');
-          toDoItem.text(list[i]);
-          var toDoClose = $('<button>');
-          toDoClose.attr('data-to-do', i);
-          toDoClose.addClass('checkbox');     
-          toDoClose.text('✓');
-          toDoItem = toDoItem.prepend(toDoClose);
-          $('#to-dos').append(toDoItem);
+          var editEventItem = $('<p>');
+          editEventItem.text(list[i]);
+          var editEventClose = $('<button>');
+          editEventClose.attr('data-editEvent', i);
+          editEventClose.addClass('checkbox');     
+          editEventClose.text('X');
+          editEventItem = editEventItem.prepend(editEventClose);
+          $('#editEvents').append(editEventItem);
         }
       }
-      $('#add-to-do').on('click', function(event) {
+      $('#add-editEvent').on('click', function(event) {
         event.preventDefault();
-        var toDoTask = $('#to-do')
+        var editEventTask = $('#editEvent')
           .val()
           .trim();
 
-        list.push(toDoTask);
-        renderTodos(list);
-        localStorage.setItem('todolist', JSON.stringify(list));      
-        $('#to-do').val('');
+        list.push(editEventTask);
+        rendereditEvents(list);
+        localStorage.setItem('editEventlist', JSON.stringify(list));      
+        $('#editEvent').val('');
       });
 
       $(document).on('click', '.checkbox', function() {    
-        var toDoNumber = $(this).attr('data-to-do');
-        list.splice(toDoNumber, 1);
-        renderTodos(list);
-        localStorage.setItem('todolist', JSON.stringify(list));
+        var editEventNumber = $(this).attr('data-editEvent');
+        list.splice(editEventNumber, 1);
+        rendereditEvents(list);
+        localStorage.setItem('editEventlist', JSON.stringify(list));
       });
-      renderTodos(list);
-
-
+      rendereditEvents(list);
 
