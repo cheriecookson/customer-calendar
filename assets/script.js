@@ -89,37 +89,47 @@ if (hourPresent == hour) {
 
 
 
-var list = JSON.parse(localStorage.getItem('editEventlist')) || [];
-      function rendereditEvents(list) {
-        $('#editEvents').empty();
+// var list = JSON.parse(localStorage.getItem('editEventlist')) || [];
+      function rendereditEvents(list, id) {
+        $('#editEvents'+ id).empty();
         for (var i = 0; i < list.length; i++) {
           var editEventItem = $('<p>');
           editEventItem.text(list[i]);
           var editEventClose = $('<button>');
-          editEventClose.attr('data-editEvent', i);
+          editEventClose.attr('data-event', i);
+          editEventClose.attr('value', id);
           editEventClose.addClass('checkbox');     
           editEventClose.text('X');
           editEventItem = editEventItem.prepend(editEventClose);
-          $('#editEvents').append(editEventItem);
+          $('#editEvents'+ id).append(editEventItem);
         }
       }
-      $('#add-editEvent').on('click', function(event) {
+      $('.container').on('click',".add-editEvent", function(event) {
         event.preventDefault();
-        var editEventTask = $('#editEvent')
+        var id  = event.target.value;
+        console.log(id);
+        var editEventTask = $('#editEvent' + id)
           .val()
           .trim();
-
+    var list = JSON.parse(localStorage.getItem(id)) || [];
         list.push(editEventTask);
-        rendereditEvents(list);
-        localStorage.setItem('editEventlist', JSON.stringify(list));      
-        $('#editEvent').val('');
+        rendereditEvents(list, id);
+        localStorage.setItem(id, JSON.stringify(list));      
+        $('#editEvent'+ id).val('');
       });
 
       $(document).on('click', '.checkbox', function() {    
-        var editEventNumber = $(this).attr('data-editEvent');
-        list.splice(editEventNumber, 1);
-        rendereditEvents(list);
-        localStorage.setItem('editEventlist', JSON.stringify(list));
-      });
-      rendereditEvents(list);
-
+          var editEventNumber = $(this).attr('data-event');
+          var id  = event.target.value;
+          var list = JSON.parse(localStorage.getItem(id)) || [];
+          console.log(editEventNumber);
+          list.splice(editEventNumber, 1);
+          rendereditEvents(list, id);
+          localStorage.setItem(id, JSON.stringify(list));
+        });
+        
+        for (var i = 9; i <= 17; i++) {
+            var list = JSON.parse(localStorage.getItem(i)) || [];
+            rendereditEvents(list, i);
+        }
+        
